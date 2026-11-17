@@ -90,6 +90,8 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburgerBtn.classList.remove('open');
     navMenu.classList.remove('open');
     hamburgerBtn.setAttribute('aria-expanded', 'false');
+    document.documentElement.classList.remove('menu-open');
+    document.body.classList.remove('menu-open');
   }
 
   if (hamburgerBtn && navMenu) {
@@ -97,8 +99,16 @@ document.addEventListener('DOMContentLoaded', () => {
       const isOpen = navMenu.classList.toggle('open');
       hamburgerBtn.classList.toggle('open', isOpen);
       hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
+      document.documentElement.classList.toggle('menu-open', isOpen);
+      document.body.classList.toggle('menu-open', isOpen);
     });
   }
+
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 920) {
+      closeMobileMenu();
+    }
+  });
 
   navLinks.forEach((link) => {
     link.addEventListener('click', () => {
