@@ -1,0 +1,1630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Stackly — Premium International Job Portal & Career Explorer Platform. Discover verified roles, explore high-growth career paths, and connect with top global companies." />
+  <title>Stackly | Premium Job Portal &amp; Career Explorer</title>
+  <link rel="icon" type="image/webp" href="assets/images/logo_0226.webp" />
+
+  <!-- Google Fonts: Plus Jakarta Sans & Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700;800&amp;display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation Library CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+  <!-- Custom Stylesheet -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Skip Navigation Link for Accessibility -->
+  <a href="#home" class="skip-link">Skip to main content</a>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+  <!-- =====================================================================
+       STICKY GLASSMORPHISM NAVBAR
+       ===================================================================== -->
+  <header class="navbar-header" id="navbar">
+    <div class="container navbar-container">
+      <!-- Brand Logo -->
+      <a href="#home" class="brand-logo" aria-label="Stackly Home">
+        <img src="assets/images/logo_0226.webp" alt="Stackly Logo" class="brand-logo-img" width="160" height="44" />
+      </a>
+
+      <!-- Desktop & Mobile Navigation Menu -->
+      <nav class="nav-menu" id="navMenu" aria-label="Primary Navigation">
+        <ul class="nav-list">
+          <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+          <li><a href="#jobs" class="nav-link" data-section="jobs">Find Jobs</a></li>
+          <li><a href="#companies" class="nav-link" data-section="companies">Companies</a></li>
+          <li><a href="#resources" class="nav-link" data-section="resources">Career Resources</a></li>
+          <li><a href="#career-explorer" class="nav-link" data-section="career-explorer">Career Explorer</a></li>
+          <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+        </ul>
+
+        <!-- Mobile-only Auth Button inside Drawer -->
+        <div class="nav-auth-mobile">
+          <button type="button" class="btn btn-primary btn-full" data-auth-modal="login">Login</button>
+        </div>
+      </nav>
+
+      <!-- Right Side Auth Button (Desktop) -->
+      <div class="nav-actions">
+        <button type="button" class="btn btn-primary" data-auth-modal="login">Login</button>
+      </div>
+
+      <!-- Responsive Hamburger Toggle -->
+      <button type="button" class="hamburger-btn" id="hamburgerBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- =====================================================================
+         SECTION 1: HERO SECTION – FIND YOUR DREAM CAREER
+         ===================================================================== -->
+    <section class="hero-section" id="home">
+      <!-- WebP Background Image with Overlay & Subtle Parallax -->
+      <div class="hero-bg-wrapper" aria-hidden="true">
+        <img src="assets/images/hero-bg.webp" alt="" class="hero-bg-image" id="heroParallaxBg" width="1440" height="810" fetchpriority="high" />
+        <div class="hero-bg-overlay"></div>
+        <div class="hero-glow hero-glow-1"></div>
+        <div class="hero-glow hero-glow-2"></div>
+      </div>
+
+      <div class="container hero-container">
+        <!-- Left Column: Content, Search Bar & CTAs -->
+        <div class="hero-content">
+          <div class="hero-badge" data-gsap="hero-item">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            <span>#1 AI-Powered Global Career &amp; Talent Intelligence Platform</span>
+          </div>
+
+          <h1 class="hero-title" data-gsap="hero-item">
+            Discover Your Next <span class="text-gradient">Career Opportunity.</span>
+          </h1>
+
+          <p class="hero-subtitle" data-gsap="hero-item">
+            Connect directly with verified global innovators, explore data-backed career trajectories, and land high-impact roles tailored to your skills, ambitions, and compensation goals.
+          </p>
+
+          <!-- Interactive Job Search Bar -->
+          <form class="hero-search-bar" id="heroSearchForm" data-gsap="hero-item" aria-label="Search Jobs">
+            <div class="search-field">
+              <label for="searchKeyword" class="sr-only">Job Title or Keyword</label>
+              <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <circle cx="11" cy="11" r="8"></circle>
+                <path d="m21 21-4.3-4.3"></path>
+              </svg>
+              <input
+                type="text"
+                id="searchKeyword"
+                name="keyword"
+                placeholder="Job title, skill, or company..."
+                autocomplete="off"
+              />
+            </div>
+
+            <div class="search-divider" aria-hidden="true"></div>
+
+            <div class="search-field">
+              <label for="searchLocation" class="sr-only">Location</label>
+              <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"></path>
+                <circle cx="12" cy="10" r="3"></circle>
+              </svg>
+              <select id="searchLocation" name="location">
+                <option value="">All Locations</option>
+                <option value="Remote">Remote (Worldwide)</option>
+                <option value="San Francisco">San Francisco, CA</option>
+                <option value="New York">New York, NY</option>
+                <option value="London">London, UK</option>
+                <option value="Singapore">Singapore</option>
+                <option value="Austin">Austin, TX</option>
+              </select>
+            </div>
+
+            <div class="search-divider" aria-hidden="true"></div>
+
+            <div class="search-field">
+              <label for="searchType" class="sr-only">Job Type</label>
+              <svg class="field-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+                <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+              </svg>
+              <select id="searchType" name="jobType">
+                <option value="">All Job Types</option>
+                <option value="Full-Time">Full-Time</option>
+                <option value="Remote">Remote</option>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Contract">Contract</option>
+              </select>
+            </div>
+
+            <button type="submit" class="btn btn-primary search-submit-btn">
+              <span>Search Jobs</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </button>
+          </form>
+
+          <!-- Popular Quick Tags -->
+          <div class="hero-popular-tags" data-gsap="hero-item">
+            <span class="tags-label">Trending:</span>
+            <button type="button" class="quick-tag" data-quick-search="Frontend">Frontend Architect</button>
+            <button type="button" class="quick-tag" data-quick-search="AI">AI Engineer</button>
+            <button type="button" class="quick-tag" data-quick-search="Designer">Product Designer</button>
+            <button type="button" class="quick-tag" data-quick-search="Data">Data Strategist</button>
+          </div>
+
+          <!-- Dual Hero CTA Buttons -->
+          <div class="hero-cta-group" data-gsap="hero-item">
+            <a href="404.html?action=Search+Jobs" class="btn btn-electric btn-lg" data-dummy-action="Search Jobs">
+              <span>Search Jobs</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a href="404.html?action=Explore+Careers" class="btn btn-outline-light btn-lg" data-dummy-action="Explore Careers">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+              <span>Explore Careers</span>
+            </a>
+          </div>
+
+          <!-- Hero Mini Statistics Row -->
+          <div class="hero-stats-row" data-gsap="hero-item">
+            <div class="hero-stat-item">
+              <strong>148K+</strong>
+              <span>Verified Active Roles</span>
+            </div>
+            <div class="hero-stat-sep" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <strong>12,400+</strong>
+              <span>Global Enterprise Partners</span>
+            </div>
+            <div class="hero-stat-sep" aria-hidden="true"></div>
+            <div class="hero-stat-item">
+              <strong>96.4%</strong>
+              <span>Candidate Satisfaction</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Split-Screen Visual with Animated Floating Job Cards -->
+        <div class="hero-visual" data-gsap="hero-visual">
+          <div class="hero-image-frame">
+            <img
+              src="assets/images/hero-main.webp"
+              alt="Diverse team of executives and technologists collaborating in a high-rise glass office"
+              class="hero-main-img"
+              width="1280"
+              height="720"
+              fetchpriority="high"
+            />
+            <div class="hero-image-gradient"></div>
+          </div>
+
+          <!-- Floating Card 1: Live Verified Job Match -->
+          <div class="floating-card floating-card-top" aria-label="Featured Match Highlight">
+            <div class="fc-icon fc-icon-blue">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"></path>
+              </svg>
+            </div>
+            <div class="fc-body">
+              <span class="fc-badge">98% AI Skill Match</span>
+              <strong>Principal Frontend Architect</strong>
+              <p>AetherAI • $185k – $230k • Remote</p>
+            </div>
+          </div>
+
+          <!-- Floating Card 2: Weekly Placement Velocity -->
+          <div class="floating-card floating-card-bottom" aria-label="Platform Placement Metric">
+            <div class="fc-icon fc-icon-emerald">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+                <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline>
+                <polyline points="16 7 22 7 22 13"></polyline>
+              </svg>
+            </div>
+            <div class="fc-body">
+              <span class="fc-badge fc-badge-emerald">+38% Salary Uplift</span>
+              <strong>4,280+ Offers Accepted</strong>
+              <p>Across top tech &amp; finance firms this week</p>
+            </div>
+          </div>
+
+          <!-- Floating Card 3: Verified Recruiter Status -->
+          <div class="floating-card floating-card-side" aria-label="Direct Hiring Access">
+            <span class="fc-status-dot"></span>
+            <span>Direct Hiring Manager Access</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 2: POPULAR JOB CATEGORIES
+         ===================================================================== -->
+    <section class="section categories-section" id="categories">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-eyebrow">Explore By Specialization</span>
+          <h2 class="section-title">Popular Job <span class="text-gradient">Categories</span></h2>
+          <p class="section-description">
+            Browse high-demand industry verticals with interactive 3D category cards. Select any domain to filter matching opportunities below.
+          </p>
+        </div>
+
+        <div class="categories-grid" id="categoriesGrid">
+          <!-- Category 1: Technology -->
+          <article class="category-card tilt-card" data-category="Technology" data-aos="zoom-in-up" data-aos-delay="50" tabindex="0" role="button" aria-label="Filter jobs by Technology">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-tech">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="16 18 22 12 16 6"></polyline>
+                    <polyline points="8 6 2 12 8 18"></polyline>
+                  </svg>
+                </div>
+                <span class="category-growth">+32% YoY</span>
+              </div>
+              <h3 class="category-name">Technology &amp; AI</h3>
+              <p class="category-desc">Full-stack engineering, machine learning, cloud architecture &amp; cybersecurity.</p>
+              <div class="category-footer">
+                <span class="category-count">4,820 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 2: Design -->
+          <article class="category-card tilt-card" data-category="Design" data-aos="zoom-in-up" data-aos-delay="100" tabindex="0" role="button" aria-label="Filter jobs by Design">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-design">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 19l7-7 3 3-7 7-3-3z"></path>
+                    <path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path>
+                    <path d="M2 2l7.586 7.586"></path>
+                    <circle cx="11" cy="11" r="2"></circle>
+                  </svg>
+                </div>
+                <span class="category-growth">+24% YoY</span>
+              </div>
+              <h3 class="category-name">Product &amp; UI/UX Design</h3>
+              <p class="category-desc">Design systems, user research, interaction design &amp; spatial computing interfaces.</p>
+              <div class="category-footer">
+                <span class="category-count">1,940 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 3: Marketing -->
+          <article class="category-card tilt-card" data-category="Marketing" data-aos="zoom-in-up" data-aos-delay="150" tabindex="0" role="button" aria-label="Filter jobs by Marketing">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-marketing">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m3 11 18-5v12L3 14v-3z"></path>
+                    <path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"></path>
+                  </svg>
+                </div>
+                <span class="category-growth">+21% YoY</span>
+              </div>
+              <h3 class="category-name">Growth &amp; Marketing</h3>
+              <p class="category-desc">Performance acquisition, product marketing, brand strategy &amp; revenue analytics.</p>
+              <div class="category-footer">
+                <span class="category-count">2,310 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 4: Finance -->
+          <article class="category-card tilt-card" data-category="Finance" data-aos="zoom-in-up" data-aos-delay="200" tabindex="0" role="button" aria-label="Filter jobs by Finance">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-finance">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <line x1="12" y1="1" x2="12" y2="23"></line>
+                    <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                  </svg>
+                </div>
+                <span class="category-growth">+19% YoY</span>
+              </div>
+              <h3 class="category-name">Finance &amp; FinTech</h3>
+              <p class="category-desc">Quantitative analysis, institutional risk, corporate FP&amp;A &amp; digital banking.</p>
+              <div class="category-footer">
+                <span class="category-count">1,680 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 5: Healthcare -->
+          <article class="category-card tilt-card" data-category="Healthcare" data-aos="zoom-in-up" data-aos-delay="250" tabindex="0" role="button" aria-label="Filter jobs by Healthcare">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-health">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <span class="category-growth">+29% YoY</span>
+              </div>
+              <h3 class="category-name">Healthcare &amp; BioTech</h3>
+              <p class="category-desc">Bioinformatics, clinical operations, digital therapeutics &amp; medical AI systems.</p>
+              <div class="category-footer">
+                <span class="category-count">3,150 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 6: Engineering -->
+          <article class="category-card tilt-card" data-category="Engineering" data-aos="zoom-in-up" data-aos-delay="300" tabindex="0" role="button" aria-label="Filter jobs by Engineering">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-engineering">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="3"></circle>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                  </svg>
+                </div>
+                <span class="category-growth">+27% YoY</span>
+              </div>
+              <h3 class="category-name">Systems &amp; Robotics Eng</h3>
+              <p class="category-desc">Autonomous hardware, embedded firmware, clean energy &amp; industrial automation.</p>
+              <div class="category-footer">
+                <span class="category-count">2,790 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 7: Business -->
+          <article class="category-card tilt-card" data-category="Business" data-aos="zoom-in-up" data-aos-delay="350" tabindex="0" role="button" aria-label="Filter jobs by Business">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-business">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                </div>
+                <span class="category-growth">+22% YoY</span>
+              </div>
+              <h3 class="category-name">Business &amp; Strategy</h3>
+              <p class="category-desc">Product management, chief of staff, revenue operations &amp; enterprise consulting.</p>
+              <div class="category-footer">
+                <span class="category-count">1,520 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Category 8: Education -->
+          <article class="category-card tilt-card" data-category="Education" data-aos="zoom-in-up" data-aos-delay="400" tabindex="0" role="button" aria-label="Filter jobs by Education">
+            <div class="category-card-inner">
+              <div class="category-top">
+                <div class="category-icon-box icon-education">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                    <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                  </svg>
+                </div>
+                <span class="category-growth">+18% YoY</span>
+              </div>
+              <h3 class="category-name">Education &amp; EdTech</h3>
+              <p class="category-desc">Curriculum architecture, AI learning platforms, L&amp;D leadership &amp; academic research.</p>
+              <div class="category-footer">
+                <span class="category-count">1,190 Open Jobs</span>
+                <span class="category-arrow" aria-hidden="true">&rarr;</span>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 3: FEATURED JOBS
+         ===================================================================== -->
+    <section class="section jobs-section" id="jobs">
+      <div class="container">
+        <div class="jobs-header-row" data-aos="fade-up">
+          <div>
+            <span class="section-eyebrow">Curated Executive &amp; Tech Opportunities</span>
+            <h2 class="section-title">Featured <span class="text-gradient">Job Openings</span></h2>
+            <p class="section-description">
+              Hand-vetted roles with transparent compensation bands and direct hiring team review.
+            </p>
+          </div>
+
+          <!-- Interactive Category Filter Pills -->
+          <div class="jobs-filter-bar" id="jobsFilterBar" role="tablist" aria-label="Filter Featured Jobs">
+            <button type="button" class="filter-pill active" data-filter="all" role="tab" aria-selected="true">All Roles</button>
+            <button type="button" class="filter-pill" data-filter="Technology" role="tab" aria-selected="false">Technology</button>
+            <button type="button" class="filter-pill" data-filter="Design" role="tab" aria-selected="false">Design</button>
+            <button type="button" class="filter-pill" data-filter="Finance" role="tab" aria-selected="false">Finance</button>
+            <button type="button" class="filter-pill" data-filter="Marketing" role="tab" aria-selected="false">Marketing</button>
+            <button type="button" class="filter-pill" data-filter="Business" role="tab" aria-selected="false">Business</button>
+          </div>
+        </div>
+
+        <!-- Active Search / Filter Status Banner -->
+        <div class="active-filter-banner hidden" id="activeFilterBanner" aria-live="polite">
+          <span id="activeFilterText">Showing filtered roles</span>
+          <button type="button" class="btn-reset-filter" id="resetFilterBtn">Clear Filter &times;</button>
+        </div>
+
+        <!-- 6 Featured Job Cards Grid -->
+        <div class="jobs-grid" id="jobsGrid">
+          <!-- Job Card 1 -->
+          <article class="job-card" data-category="Technology" data-type="Remote" data-location="San Francisco" data-title="Senior Staff Frontend Engineer" data-company="AetherAI Systems" data-salary="$185,000 – $225,000" data-aos="fade-right" data-aos-delay="50">
+            <div class="job-card-top">
+              <div class="company-logo-badge logo-aether" aria-hidden="true">AE</div>
+              <div class="job-title-group">
+                <div class="job-company-row">
+                  <span class="job-company">AetherAI Systems</span>
+                  <span class="verified-pill" title="Verified Employer">&#10003; Verified</span>
+                </div>
+                <h3 class="job-title">Senior Staff Frontend Engineer</h3>
+              </div>
+              <button type="button" class="bookmark-btn" aria-label="Save Senior Staff Frontend Engineer job" title="Save Job">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="job-meta-list">
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                San Francisco, CA (Remote)
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Full-Time • Remote
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                5+ Years Exp
+              </span>
+            </div>
+
+            <div class="job-skills-row">
+              <span class="skill-chip">TypeScript</span>
+              <span class="skill-chip">Design Systems</span>
+              <span class="skill-chip">WebGL / Canvas</span>
+              <span class="skill-chip">Performance</span>
+            </div>
+
+            <div class="job-card-footer">
+              <div class="job-salary">
+                <strong>$185k – $225k</strong>
+                <span>/ year + 0.15% Equity</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm apply-now-btn">Apply Now</button>
+            </div>
+          </article>
+
+          <!-- Job Card 2 -->
+          <article class="job-card" data-category="Design" data-type="Hybrid" data-location="New York" data-title="Lead Product Designer (Design Systems)" data-company="AuraDesign Studio" data-salary="$160,000 – $192,000" data-aos="fade-up" data-aos-delay="100">
+            <div class="job-card-top">
+              <div class="company-logo-badge logo-aura" aria-hidden="true">AU</div>
+              <div class="job-title-group">
+                <div class="job-company-row">
+                  <span class="job-company">AuraDesign Studio</span>
+                  <span class="verified-pill">&#10003; Verified</span>
+                </div>
+                <h3 class="job-title">Lead Product Designer (Design Systems)</h3>
+              </div>
+              <button type="button" class="bookmark-btn" aria-label="Save Lead Product Designer job" title="Save Job">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="job-meta-list">
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                New York, NY (Hybrid)
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Full-Time • Hybrid
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                4+ Years Exp
+              </span>
+            </div>
+
+            <div class="job-skills-row">
+              <span class="skill-chip">Figma Tokens</span>
+              <span class="skill-chip">UX Architecture</span>
+              <span class="skill-chip">Prototyping</span>
+              <span class="skill-chip">WCAG A11y</span>
+            </div>
+
+            <div class="job-card-footer">
+              <div class="job-salary">
+                <strong>$160k – $192k</strong>
+                <span>/ year + Bonus</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm apply-now-btn">Apply Now</button>
+            </div>
+          </article>
+
+          <!-- Job Card 3 -->
+          <article class="job-card" data-category="Finance" data-type="Full-Time" data-location="London" data-title="VP of Quantitative Data Strategy" data-company="FinVantage Capital" data-salary="$195,000 – $240,000" data-aos="fade-left" data-aos-delay="150">
+            <div class="job-card-top">
+              <div class="company-logo-badge logo-finvantage" aria-hidden="true">FV</div>
+              <div class="job-title-group">
+                <div class="job-company-row">
+                  <span class="job-company">FinVantage Capital</span>
+                  <span class="verified-pill">&#10003; Verified</span>
+                </div>
+                <h3 class="job-title">VP of Quantitative Data Strategy</h3>
+              </div>
+              <button type="button" class="bookmark-btn" aria-label="Save VP of Quantitative Data Strategy job" title="Save Job">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="job-meta-list">
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                London, UK
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Full-Time
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                6+ Years Exp
+              </span>
+            </div>
+
+            <div class="job-skills-row">
+              <span class="skill-chip">Python / SQL</span>
+              <span class="skill-chip">Predictive Modeling</span>
+              <span class="skill-chip">FinTech Risk</span>
+              <span class="skill-chip">Snowflake</span>
+            </div>
+
+            <div class="job-card-footer">
+              <div class="job-salary">
+                <strong>$195k – $240k</strong>
+                <span>/ year + Perf Bonus</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm apply-now-btn">Apply Now</button>
+            </div>
+          </article>
+
+          <!-- Job Card 4 -->
+          <article class="job-card" data-category="Technology" data-type="Remote" data-location="Remote" data-title="Principal Cloud Infrastructure Engineer" data-company="VercelCloud Labs" data-salary="$175,000 – $215,000" data-aos="fade-right" data-aos-delay="200">
+            <div class="job-card-top">
+              <div class="company-logo-badge logo-vercel" aria-hidden="true">VC</div>
+              <div class="job-title-group">
+                <div class="job-company-row">
+                  <span class="job-company">VercelCloud Labs</span>
+                  <span class="verified-pill">&#10003; Verified</span>
+                </div>
+                <h3 class="job-title">Principal Cloud Infrastructure Engineer</h3>
+              </div>
+              <button type="button" class="bookmark-btn" aria-label="Save Principal Cloud Infrastructure Engineer job" title="Save Job">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="job-meta-list">
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Remote (Global)
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Remote • Full-Time
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                5+ Years Exp
+              </span>
+            </div>
+
+            <div class="job-skills-row">
+              <span class="skill-chip">Kubernetes</span>
+              <span class="skill-chip">Rust / Go</span>
+              <span class="skill-chip">Multi-Cloud</span>
+              <span class="skill-chip">Zero-Trust</span>
+            </div>
+
+            <div class="job-card-footer">
+              <div class="job-salary">
+                <strong>$175k – $215k</strong>
+                <span>/ year + Equity</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm apply-now-btn">Apply Now</button>
+            </div>
+          </article>
+
+          <!-- Job Card 5 -->
+          <article class="job-card" data-category="Marketing" data-type="Hybrid" data-location="Austin" data-title="Head of Global Growth &amp; Demand Gen" data-company="StripeFlow Global" data-salary="$150,000 – $182,000" data-aos="fade-up" data-aos-delay="250">
+            <div class="job-card-top">
+              <div class="company-logo-badge logo-stripe" aria-hidden="true">SF</div>
+              <div class="job-title-group">
+                <div class="job-company-row">
+                  <span class="job-company">StripeFlow Global</span>
+                  <span class="verified-pill">&#10003; Verified</span>
+                </div>
+                <h3 class="job-title">Head of Global Growth &amp; Demand Gen</h3>
+              </div>
+              <button type="button" class="bookmark-btn" aria-label="Save Head of Global Growth job" title="Save Job">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="job-meta-list">
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Austin, TX (Hybrid)
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Hybrid • Full-Time
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                4–6 Years Exp
+              </span>
+            </div>
+
+            <div class="job-skills-row">
+              <span class="skill-chip">PLG Funnel</span>
+              <span class="skill-chip">Attribution Analytics</span>
+              <span class="skill-chip">B2B SaaS</span>
+              <span class="skill-chip">CRO</span>
+            </div>
+
+            <div class="job-card-footer">
+              <div class="job-salary">
+                <strong>$150k – $182k</strong>
+                <span>/ year + Revenue Bonus</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm apply-now-btn">Apply Now</button>
+            </div>
+          </article>
+
+          <!-- Job Card 6 -->
+          <article class="job-card" data-category="Business" data-type="Full-Time" data-location="Singapore" data-title="Director of Strategic Business Operations" data-company="Quantix BioHealth" data-salary="$168,000 – $205,000" data-aos="fade-left" data-aos-delay="300">
+            <div class="job-card-top">
+              <div class="company-logo-badge logo-quantix" aria-hidden="true">QB</div>
+              <div class="job-title-group">
+                <div class="job-company-row">
+                  <span class="job-company">Quantix BioHealth</span>
+                  <span class="verified-pill">&#10003; Verified</span>
+                </div>
+                <h3 class="job-title">Director of Strategic Business Operations</h3>
+              </div>
+              <button type="button" class="bookmark-btn" aria-label="Save Director of Strategic Business Operations job" title="Save Job">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="job-meta-list">
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                Singapore (APAC HQ)
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                Full-Time
+              </span>
+              <span class="job-meta-item">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                6+ Years Exp
+              </span>
+            </div>
+
+            <div class="job-skills-row">
+              <span class="skill-chip">Corporate Strategy</span>
+              <span class="skill-chip">M&amp;A Integration</span>
+              <span class="skill-chip">BI Dashboards</span>
+              <span class="skill-chip">OKR Leadership</span>
+            </div>
+
+            <div class="job-card-footer">
+              <div class="job-salary">
+                <strong>$168k – $205k</strong>
+                <span>/ year + Executive Stock</span>
+              </div>
+              <button type="button" class="btn btn-primary btn-sm apply-now-btn">Apply Now</button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Empty Search State -->
+        <div class="jobs-empty-state hidden" id="jobsEmptyState">
+          <h3>No matching roles found for your current filter</h3>
+          <p>Try broadening your keyword, location, or job type filter to view all 6 featured executive and tech positions.</p>
+          <button type="button" class="btn btn-primary" id="emptyResetBtn">Show All Featured Jobs</button>
+        </div>
+
+        <!-- View All Jobs CTA -->
+        <div class="section-cta-center" data-aos="fade-up">
+          <button type="button" class="btn btn-outline-primary btn-lg" id="viewAllJobsBtn">
+            <span>View All Jobs (148,000+ Live Openings)</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+              <path d="M5 12h14"></path>
+              <path d="m12 5 7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 4: TOP HIRING COMPANIES (INFINITE LOGO CAROUSEL)
+         ===================================================================== -->
+    <section class="section companies-section" id="companies">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-eyebrow">Global Employer Network</span>
+          <h2 class="section-title">Top Hiring <span class="text-gradient">Companies</span></h2>
+          <p class="section-description">
+            Partnered with world-class category leaders actively recruiting across engineering, product, finance, and life sciences. Hover to pause or click any employer to inspect open roles.
+          </p>
+        </div>
+      </div>
+
+      <!-- Infinite Horizontal Auto-Slide Carousel -->
+      <div class="companies-marquee-wrapper" aria-label="Top Hiring Companies Carousel">
+        <div class="companies-marquee-track" id="companiesTrack">
+          <!-- Set 1 of 8 Companies -->
+          <div class="company-carousel-card" data-company-filter="AetherAI Systems" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-aether">AE</div>
+              <span class="cc-openings">64 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">AetherAI Systems</h3>
+            <p class="cc-industry">Artificial Intelligence &amp; LLM Infrastructure</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.9 Rating</span>
+              <span>San Francisco &bull; Remote</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="StripeFlow Global" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-stripe">SF</div>
+              <span class="cc-openings">52 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">StripeFlow Global</h3>
+            <p class="cc-industry">Global Payment Rails &amp; Treasury SaaS</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.8 Rating</span>
+              <span>Austin &bull; Dublin</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="VercelCloud Labs" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-vercel">VC</div>
+              <span class="cc-openings">41 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">VercelCloud Labs</h3>
+            <p class="cc-industry">Edge Cloud Computing &amp; Developer Experience</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.9 Rating</span>
+              <span>100% Distributed</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="FinVantage Capital" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-finvantage">FV</div>
+              <span class="cc-openings">38 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">FinVantage Capital</h3>
+            <p class="cc-industry">Quantitative Asset Management &amp; FinTech</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.7 Rating</span>
+              <span>London &bull; New York</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="Quantix BioHealth" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-quantix">QB</div>
+              <span class="cc-openings">47 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">Quantix BioHealth</h3>
+            <p class="cc-industry">Computational Genomics &amp; Precision Medicine</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.8 Rating</span>
+              <span>Singapore &bull; Boston</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="AuraDesign Studio" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-aura">AU</div>
+              <span class="cc-openings">29 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">AuraDesign Studio</h3>
+            <p class="cc-industry">Digital Product Design &amp; Spatial Interfaces</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.9 Rating</span>
+              <span>New York &bull; Hybrid</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="NovaCore Robotics" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-novacore">NC</div>
+              <span class="cc-openings">56 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">NovaCore Robotics</h3>
+            <p class="cc-industry">Autonomous Logistics &amp; Humanoid Systems</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.8 Rating</span>
+              <span>Munich &bull; Zurich</span>
+            </div>
+          </div>
+
+          <div class="company-carousel-card" data-company-filter="Hyperion DataWorks" tabindex="0" role="button">
+            <div class="cc-top">
+              <div class="company-logo-badge logo-hyperion">HD</div>
+              <span class="cc-openings">73 Open Jobs</span>
+            </div>
+            <h3 class="cc-name">Hyperion DataWorks</h3>
+            <p class="cc-industry">Enterprise Data Lakehouse &amp; Real-Time BI</p>
+            <div class="cc-meta">
+              <span>&#9733; 4.9 Rating</span>
+              <span>Seattle &bull; Remote</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 5: EXPLORE CAREER PATHS (CAREER EXPLORER)
+         ===================================================================== -->
+    <section class="section career-paths-section" id="career-explorer">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-eyebrow">Interactive Career Architecture</span>
+          <h2 class="section-title">Explore High-Growth <span class="text-gradient">Career Paths</span></h2>
+          <p class="section-description">
+            Benchmark required competencies, compensation trajectories, and 5-year promotion roadmaps across the world's most resilient digital professions.
+          </p>
+        </div>
+
+        <!-- Interactive Career Path Highlight Tabs -->
+        <div class="career-tabs-nav" id="careerTabsNav" role="tablist" aria-label="Filter Career Paths">
+          <button type="button" class="career-tab-btn active" data-career-filter="all" role="tab" aria-selected="true">All 5 Career Tracks</button>
+          <button type="button" class="career-tab-btn" data-career-filter="frontend" role="tab" aria-selected="false">Frontend Developer</button>
+          <button type="button" class="career-tab-btn" data-career-filter="uiux" role="tab" aria-selected="false">UI/UX Designer</button>
+          <button type="button" class="career-tab-btn" data-career-filter="data" role="tab" aria-selected="false">Data Analyst</button>
+          <button type="button" class="career-tab-btn" data-career-filter="marketing" role="tab" aria-selected="false">Digital Marketer</button>
+          <button type="button" class="career-tab-btn" data-career-filter="business" role="tab" aria-selected="false">Business Analyst</button>
+        </div>
+
+        <!-- 5 Career Path Cards Grid -->
+        <div class="career-paths-grid" id="careerPathsGrid">
+          <!-- Career Path 1: Frontend Developer -->
+          <article class="career-card" data-career="frontend" data-aos="fade-up" data-aos-delay="50">
+            <div class="career-img-wrap">
+              <img src="assets/images/career-frontend.webp" alt="Frontend Developer coding modern web interfaces on dual monitors" class="career-img" width="800" height="500" loading="lazy" />
+              <span class="career-demand-badge">High Demand &bull; +34% Growth</span>
+              <div class="career-salary-pill">$115k – $195k Avg</div>
+            </div>
+            <div class="career-card-body">
+              <div class="career-track-tag">Software Engineering Track</div>
+              <h3 class="career-card-title">Frontend Developer</h3>
+              <p class="career-card-desc">
+                Architect ultra-responsive web applications, interactive design systems, and performant client-side experiences using modern web standards.
+              </p>
+
+              <div class="career-meta-block">
+                <span class="meta-block-label">Core Required Skills:</span>
+                <div class="career-skill-pills">
+                  <span>HTML5 / CSS3</span>
+                  <span>JavaScript (ES2026)</span>
+                  <span>TypeScript</span>
+                  <span>Web Performance</span>
+                  <span>Accessibility</span>
+                </div>
+              </div>
+
+              <div class="career-growth-box">
+                <span class="growth-label">Growth Opportunity:</span>
+                <p>Senior Frontend Eng &rarr; Staff UI Architect &rarr; VP of Web Engineering</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-full explore-career-btn"
+                data-career-key="frontend"
+              >
+                <span>Explore Career</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Career Path 2: UI/UX Designer -->
+          <article class="career-card" data-career="uiux" data-aos="fade-up" data-aos-delay="100">
+            <div class="career-img-wrap">
+              <img src="assets/images/career-uiux.webp" alt="UI/UX Designer creating interactive prototypes with stylus and tablet" class="career-img" width="800" height="500" loading="lazy" />
+              <span class="career-demand-badge">Creative Leadership &bull; +28% Growth</span>
+              <div class="career-salary-pill">$105k – $180k Avg</div>
+            </div>
+            <div class="career-card-body">
+              <div class="career-track-tag">Product &amp; Experience Track</div>
+              <h3 class="career-card-title">UI/UX Designer</h3>
+              <p class="career-card-desc">
+                Transform complex human workflows into intuitive digital products through user research, interactive wireframing, and scalable component libraries.
+              </p>
+
+              <div class="career-meta-block">
+                <span class="meta-block-label">Core Required Skills:</span>
+                <div class="career-skill-pills">
+                  <span>Figma &amp; Design Tokens</span>
+                  <span>User Research</span>
+                  <span>Interaction Design</span>
+                  <span>Usability Testing</span>
+                </div>
+              </div>
+
+              <div class="career-growth-box">
+                <span class="growth-label">Growth Opportunity:</span>
+                <p>Lead Product Designer &rarr; Design Systems Principal &rarr; VP of Design</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-full explore-career-btn"
+                data-career-key="uiux"
+              >
+                <span>Explore Career</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Career Path 3: Data Analyst -->
+          <article class="career-card" data-career="data" data-aos="fade-up" data-aos-delay="150">
+            <div class="career-img-wrap">
+              <img src="assets/images/career-data.webp" alt="Data Analyst presenting interactive dashboards and charts on a large screen" class="career-img" width="800" height="500" loading="lazy" />
+              <span class="career-demand-badge">AI &amp; Analytics &bull; +39% Growth</span>
+              <div class="career-salary-pill">$110k – $185k Avg</div>
+            </div>
+            <div class="career-card-body">
+              <div class="career-track-tag">Data Science &amp; BI Track</div>
+              <h3 class="career-card-title">Data Analyst</h3>
+              <p class="career-card-desc">
+                Uncover actionable business intelligence from multi-terabyte datasets, build predictive models, and guide executive decision-making with visual storytelling.
+              </p>
+
+              <div class="career-meta-block">
+                <span class="meta-block-label">Core Required Skills:</span>
+                <div class="career-skill-pills">
+                  <span>SQL &amp; Python</span>
+                  <span>Tableau / PowerBI</span>
+                  <span>Statistical Modeling</span>
+                  <span>A/B Experimentation</span>
+                </div>
+              </div>
+
+              <div class="career-growth-box">
+                <span class="growth-label">Growth Opportunity:</span>
+                <p>Senior Analytics Eng &rarr; Lead Data Scientist &rarr; Chief Data Officer</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-full explore-career-btn"
+                data-career-key="data"
+              >
+                <span>Explore Career</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Career Path 4: Digital Marketer -->
+          <article class="career-card" data-career="marketing" data-aos="fade-up" data-aos-delay="200">
+            <div class="career-img-wrap">
+              <img src="assets/images/career-marketing.webp" alt="Digital Marketer reviewing campaign growth metrics and brand strategy" class="career-img" width="800" height="500" loading="lazy" />
+              <span class="career-demand-badge">Revenue Engine &bull; +25% Growth</span>
+              <div class="career-salary-pill">$98k – $170k Avg</div>
+            </div>
+            <div class="career-card-body">
+              <div class="career-track-tag">Growth &amp; Brand Track</div>
+              <h3 class="career-card-title">Digital Marketer</h3>
+              <p class="career-card-desc">
+                Scale customer acquisition engines, orchestrate full-funnel product-led growth campaigns, and optimize multi-channel conversion economics.
+              </p>
+
+              <div class="career-meta-block">
+                <span class="meta-block-label">Core Required Skills:</span>
+                <div class="career-skill-pills">
+                  <span>Performance Media</span>
+                  <span>SEO &amp; Content Strategy</span>
+                  <span>Marketing Automation</span>
+                  <span>Funnel Attribution</span>
+                </div>
+              </div>
+
+              <div class="career-growth-box">
+                <span class="growth-label">Growth Opportunity:</span>
+                <p>Growth Marketing Lead &rarr; VP of Demand Gen &rarr; Chief Marketing Officer</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-full explore-career-btn"
+                data-career-key="marketing"
+              >
+                <span>Explore Career</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Career Path 5: Business Analyst -->
+          <article class="career-card" data-career="business" data-aos="fade-up" data-aos-delay="250">
+            <div class="career-img-wrap">
+              <img src="assets/images/career-business.webp" alt="Business Analyst presenting strategic roadmap in corporate boardroom" class="career-img" width="800" height="500" loading="lazy" />
+              <span class="career-demand-badge">Executive Track &bull; +31% Growth</span>
+              <div class="career-salary-pill">$112k – $190k Avg</div>
+            </div>
+            <div class="career-card-body">
+              <div class="career-track-tag">Strategy &amp; Operations Track</div>
+              <h3 class="career-card-title">Business Analyst</h3>
+              <p class="career-card-desc">
+                Bridge executive vision and engineering execution by evaluating market expansion models, optimizing operational P&amp;L, and leading enterprise transformation.
+              </p>
+
+              <div class="career-meta-block">
+                <span class="meta-block-label">Core Required Skills:</span>
+                <div class="career-skill-pills">
+                  <span>Financial Modeling</span>
+                  <span>Process Architecture</span>
+                  <span>Stakeholder Strategy</span>
+                  <span>Product Roadmapping</span>
+                </div>
+              </div>
+
+              <div class="career-growth-box">
+                <span class="growth-label">Growth Opportunity:</span>
+                <p>Principal Business Analyst &rarr; Director of Strategy &rarr; Chief Operating Officer</p>
+              </div>
+
+              <button
+                type="button"
+                class="btn btn-primary btn-full explore-career-btn"
+                data-career-key="business"
+              >
+                <span>Explore Career</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 6: WHY CHOOSE OUR PLATFORM
+         ===================================================================== -->
+    <section class="section why-us-section" id="why-us">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-eyebrow">The Stackly Advantage</span>
+          <h2 class="section-title">Why Top Professionals <span class="text-gradient">Choose Our Platform</span></h2>
+          <p class="section-description">
+            Engineered to eliminate ghost listings, opaque compensation, and automated resume black holes.
+          </p>
+        </div>
+
+        <!-- Animated Metrics Counter Banner -->
+        <div class="counters-banner" id="countersBanner" data-aos="zoom-in">
+          <div class="counter-box">
+            <div class="counter-value">
+              <span class="counter-number" data-target="148">0</span><span>K+</span>
+            </div>
+            <p class="counter-label">Verified Active Job Listings</p>
+          </div>
+          <div class="counter-box">
+            <div class="counter-value">
+              <span class="counter-number" data-target="96">0</span><span>%</span>
+            </div>
+            <p class="counter-label">Smart AI Match Accuracy</p>
+          </div>
+          <div class="counter-box">
+            <div class="counter-value">
+              <span class="counter-number" data-target="12400">0</span><span>+</span>
+            </div>
+            <p class="counter-label">Global Hiring Enterprises</p>
+          </div>
+          <div class="counter-box">
+            <div class="counter-value">
+              <span class="counter-number" data-target="14">0</span><span> Days</span>
+            </div>
+            <p class="counter-label">Average Time To First Offer</p>
+          </div>
+        </div>
+
+        <!-- 6 Unique Platform Benefits Grid -->
+        <div class="benefits-grid">
+          <!-- Benefit 1 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="benefit-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                <path d="m9 12 2 2 4-4"></path>
+              </svg>
+            </div>
+            <span class="benefit-number">01</span>
+            <h3 class="benefit-title">Verified Job Listings</h3>
+            <p class="benefit-desc">
+              Every position is synced directly with employer applicant systems and audited every 24 hours—zero expired or ghost jobs.
+            </p>
+          </div>
+
+          <!-- Benefit 2 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="100">
+            <div class="benefit-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"></circle>
+                <circle cx="12" cy="12" r="6"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+              </svg>
+            </div>
+            <span class="benefit-number">02</span>
+            <h3 class="benefit-title">Smart Job Matching</h3>
+            <p class="benefit-desc">
+              Our neural competency engine maps your project portfolio and depth of experience to roles where you rank in the top 5% of applicants.
+            </p>
+          </div>
+
+          <!-- Benefit 3 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="150">
+            <div class="benefit-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
+              </svg>
+            </div>
+            <span class="benefit-number">03</span>
+            <h3 class="benefit-title">Personalized Career Guidance</h3>
+            <p class="benefit-desc">
+              Access interactive skill-gap diagnostics, real-time compensation benchmarks, and 1-on-1 mentorship from industry hiring leads.
+            </p>
+          </div>
+
+          <!-- Benefit 4 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="200">
+            <div class="benefit-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+              </svg>
+            </div>
+            <span class="benefit-number">04</span>
+            <h3 class="benefit-title">One-Click Easy Applications</h3>
+            <p class="benefit-desc">
+              Apply in seconds with a single structured talent profile—never re-type your work history into repetitive legacy forms again.
+            </p>
+          </div>
+
+          <!-- Benefit 5 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="250">
+            <div class="benefit-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect width="16" height="20" x="4" y="2" rx="2" ry="2"></rect>
+                <path d="M9 22v-4h6v4"></path>
+                <path d="M8 6h.01"></path>
+                <path d="M16 6h.01"></path>
+                <path d="M12 6h.01"></path>
+                <path d="M12 10h.01"></path>
+                <path d="M12 14h.01"></path>
+                <path d="M16 10h.01"></path>
+                <path d="M16 14h.01"></path>
+                <path d="M8 10h.01"></path>
+                <path d="M8 14h.01"></path>
+              </svg>
+            </div>
+            <span class="benefit-number">05</span>
+            <h3 class="benefit-title">Direct Top Companies Access</h3>
+            <p class="benefit-desc">
+              Get fast-tracked directly to engineering VPs, design directors, and executive recruiters at Fortune 500s and hyper-growth unicorns.
+            </p>
+          </div>
+
+          <!-- Benefit 6 -->
+          <div class="benefit-card" data-aos="fade-up" data-aos-delay="300">
+            <div class="benefit-icon-wrap">
+              <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+            </div>
+            <span class="benefit-number">06</span>
+            <h3 class="benefit-title">Accelerated Career Growth</h3>
+            <p class="benefit-desc">
+              Track emerging market skills before they peak and unlock executive leadership pathways with data-backed promotion playbooks.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 7: CAREER RESOURCES & SUCCESS STORIES
+         ===================================================================== -->
+    <section class="section resources-section" id="resources">
+      <div class="container">
+        <div class="section-header text-center" data-aos="fade-up">
+          <span class="section-eyebrow">Editorial Insights &amp; Proven Outcomes</span>
+          <h2 class="section-title">Career Resources &amp; <span class="text-gradient">Success Stories</span></h2>
+          <p class="section-description">
+            Master technical and executive interviews, optimize your resume for modern hiring pipelines, and hear from professionals who transformed their careers.
+          </p>
+        </div>
+
+        <!-- 3 Attractive Blog Cards with WebP Images -->
+        <div class="blog-grid">
+          <!-- Blog Card 1 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="50">
+            <div class="blog-img-container">
+              <img src="assets/images/blog-interview.webp" alt="Candidate and hiring manager in a bright modern glass office interview" class="blog-img" width="800" height="500" loading="lazy" />
+              <span class="blog-category-badge">Interview Preparation</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>8 Min Read</span>
+                <span>&bull;</span>
+                <span>Updated Nov 2026</span>
+              </div>
+              <h3 class="blog-title">Mastering System Design &amp; Executive Behavioral Interviews in 2026</h3>
+              <p class="blog-excerpt">
+                Learn the exact structured frameworks used by principal engineers and product leaders to articulate architectural trade-offs and leadership impact.
+              </p>
+              <button type="button" class="blog-read-btn" data-article-id="interview">
+                <span>Read Full Guide</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Blog Card 2 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="120">
+            <div class="blog-img-container">
+              <img src="assets/images/blog-resume.webp" alt="Modern oak desk with laptop portfolio and minimalist printed resume" class="blog-img" width="800" height="500" loading="lazy" />
+              <span class="blog-category-badge">Resume &amp; Portfolio Tips</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>6 Min Read</span>
+                <span>&bull;</span>
+                <span>Career Playbook</span>
+              </div>
+              <h3 class="blog-title">How to Engineer an ATS-Proof Resume &amp; Portfolio That Converts</h3>
+              <p class="blog-excerpt">
+                Replace generic responsibility lists with quantified revenue, latency, and retention metrics that immediately capture hiring manager attention.
+              </p>
+              <button type="button" class="blog-read-btn" data-article-id="resume">
+                <span>Read Full Guide</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- Blog Card 3 -->
+          <article class="blog-card" data-aos="fade-up" data-aos-delay="190">
+            <div class="blog-img-container">
+              <img src="assets/images/blog-growth.webp" alt="Confident young executive standing in high-rise office overlooking skyline" class="blog-img" width="800" height="500" loading="lazy" />
+              <span class="blog-category-badge">Professional Development</span>
+            </div>
+            <div class="blog-card-content">
+              <div class="blog-meta">
+                <span>10 Min Read</span>
+                <span>&bull;</span>
+                <span>Compensation Report</span>
+              </div>
+              <h3 class="blog-title">The Strategic Playbook for Negotiating Senior Tech &amp; Leadership Offers</h3>
+              <p class="blog-excerpt">
+                Understand equity refreshers, sign-on structures, and competing offer leverage to maximize your total compensation package without friction.
+              </p>
+              <button type="button" class="blog-read-btn" data-article-id="growth">
+                <span>Read Full Guide</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+            </div>
+          </article>
+        </div>
+
+        <!-- Candidate Success Stories Testimonial Slider -->
+        <div class="testimonials-wrapper" data-aos="fade-up">
+          <div class="testimonials-header">
+            <div>
+              <span class="section-eyebrow">Verified Candidate Stories</span>
+              <h3 class="testimonials-heading">Real Career Transformations</h3>
+            </div>
+            <div class="slider-controls">
+              <button type="button" class="slider-btn" id="prevTestimonialBtn" aria-label="Previous success story">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" class="slider-btn" id="nextTestimonialBtn" aria-label="Next success story">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="testimonial-slider-viewport" id="testimonialViewport">
+            <div class="testimonial-track" id="testimonialTrack">
+              <!-- Slide 1 -->
+              <div class="testimonial-slide active" aria-hidden="false">
+                <div class="testimonial-quote-col">
+                  <div class="quote-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <blockquote class="testimonial-quote">
+                    &ldquo;Within 11 days of completing my Stackly competency profile, I had three direct interviews with Series C and public AI companies—bypassing cold applications entirely. I accepted a Principal Frontend role with a 42% total compensation increase.&rdquo;
+                  </blockquote>
+                  <div class="testimonial-outcome-badges">
+                    <span class="outcome-pill">+42% Salary Uplift</span>
+                    <span class="outcome-pill">Hired in 11 Days</span>
+                    <span class="outcome-pill">Direct VP Fast-Track</span>
+                  </div>
+                </div>
+                <div class="testimonial-author-col">
+                  <img src="assets/images/avatar-sarah.webp" alt="Portrait of Sarah Chen" class="testimonial-avatar" width="240" height="240" loading="lazy" />
+                  <div class="author-info">
+                    <strong>Sarah J. Chen</strong>
+                    <span>Principal Frontend Architect at AetherAI Systems</span>
+                    <small>Previously: Senior UI Engineer</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="testimonial-slide" aria-hidden="true">
+                <div class="testimonial-quote-col">
+                  <div class="quote-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <blockquote class="testimonial-quote">
+                    &ldquo;The Career Explorer roadmap showed me exactly which cloud data warehouse and predictive modeling skills separated Mid-Level Analysts from Quantitative Strategy VPs. Six months later, Stackly matched me directly with FinVantage Capital in London.&rdquo;
+                  </blockquote>
+                  <div class="testimonial-outcome-badges">
+                    <span class="outcome-pill">+55% Total Comp</span>
+                    <span class="outcome-pill">Relocation Sponsored</span>
+                    <span class="outcome-pill">Executive Track</span>
+                  </div>
+                </div>
+                <div class="testimonial-author-col">
+                  <img src="assets/images/avatar-marcus.webp" alt="Portrait of Marcus Vance" class="testimonial-avatar" width="240" height="240" loading="lazy" />
+                  <div class="author-info">
+                    <strong>Marcus Vance</strong>
+                    <span>VP of Quantitative Data Strategy at FinVantage</span>
+                    <small>Previously: Lead BI Analyst</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="testimonial-slide" aria-hidden="true">
+                <div class="testimonial-quote-col">
+                  <div class="quote-stars" aria-label="5 out of 5 stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+                  <blockquote class="testimonial-quote">
+                    &ldquo;Every job card on Stackly had transparent salary bands and real hiring manager feedback. I transitioned from agency design into leading the core Design Systems team at AuraDesign Studio with full hybrid flexibility.&rdquo;
+                  </blockquote>
+                  <div class="testimonial-outcome-badges">
+                    <span class="outcome-pill">+36% Base Salary</span>
+                    <span class="outcome-pill">Design Systems Lead</span>
+                    <span class="outcome-pill">Zero Ghost Listings</span>
+                  </div>
+                </div>
+                <div class="testimonial-author-col">
+                  <img src="assets/images/avatar-elena.webp" alt="Portrait of Elena Rostova" class="testimonial-avatar" width="240" height="240" loading="lazy" />
+                  <div class="author-info">
+                    <strong>Elena Rostova</strong>
+                    <span>Lead Product Designer at AuraDesign Studio</span>
+                    <small>Previously: Senior UX Designer</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Slider Dots -->
+          <div class="testimonial-dots" id="testimonialDots" role="tablist" aria-label="Select testimonial slide">
+            <button type="button" class="slider-dot active" data-slide="0" role="tab" aria-selected="true" aria-label="Story 1: Sarah Chen"></button>
+            <button type="button" class="slider-dot" data-slide="1" role="tab" aria-selected="false" aria-label="Story 2: Marcus Vance"></button>
+            <button type="button" class="slider-dot" data-slide="2" role="tab" aria-selected="false" aria-label="Story 3: Elena Rostova"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================================================================
+         SECTION 8: CALL TO ACTION & FOOTER
+         ===================================================================== -->
+    <section class="cta-banner-section" id="contact">
+      <div class="container">
+        <div class="cta-banner-card" data-aos="zoom-in">
+          <!-- Animated Background Orbs -->
+          <div class="cta-orb cta-orb-1" aria-hidden="true"></div>
+          <div class="cta-orb cta-orb-2" aria-hidden="true"></div>
+
+          <div class="cta-banner-content">
+            <span class="cta-eyebrow">Accelerate Your Trajectory Today</span>
+            <h2 class="cta-headline">Your Dream Job Is Just One Step Away.</h2>
+            <p class="cta-subtext">
+              Join over 1.2 million ambitious technologists, designers, analysts, and executives discovering verified high-compensation roles every day.
+            </p>
+            <div class="cta-buttons-row">
+              <button type="button" class="btn btn-electric btn-lg" data-auth-modal="signup" data-dummy-action="Get Started">
+                <span>Get Started</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </button>
+              <a href="404.html?action=Explore+Opportunities" class="btn btn-outline-light btn-lg" data-dummy-action="Explore Opportunities">
+                <span>Explore Opportunities</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       PREMIUM FOOTER WITH FUNCTIONAL NEWSLETTER VALIDATION
+       ===================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-top-grid">
+        <!-- Column 1: Brand & Contact Info -->
+        <div class="footer-brand-col">
+          <a href="#home" class="brand-logo footer-logo" aria-label="Stackly Home">
+            <img src="assets/images/logo_0226.webp" alt="Stackly Logo" class="brand-logo-img footer-logo-img" width="168" height="46" />
+          </a>
+          <p class="footer-mission">
+            The premier international talent intelligence and career exploration ecosystem connecting world-class professionals with verified category leaders.
+          </p>
+          <div class="footer-contact-details">
+            <p><strong>Global HQ:</strong> MMR Complex, Chinna tirupati, Salem, 636008 TN.</p>
+            <p><strong>Concierge:</strong> talent@stackly.io &bull; +91 98765 43210</p>
+          </div>
+          <!-- Social Media Icons -->
+          <div class="footer-socials" aria-label="Social Media Links">
+            <a href="404.html?action=LinkedIn" class="social-icon-link" aria-label="LinkedIn">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+            <a href="404.html?action=Twitter" class="social-icon-link" aria-label="X / Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
+            </a>
+            <a href="404.html?action=GitHub" class="social-icon-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
+            </a>
+            <a href="404.html?action=YouTube" class="social-icon-link" aria-label="YouTube">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3v6Z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Quick Links -->
+        <div class="footer-links-col">
+          <h3 class="footer-col-title">Quick Navigation</h3>
+          <ul class="footer-links-list">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#categories">Job Categories</a></li>
+            <li><a href="#jobs">Featured Jobs</a></li>
+            <li><a href="#companies">Top Hiring Companies</a></li>
+            <li><a href="#career-explorer">Career Path Explorer</a></li>
+            <li><a href="#why-us">Why Choose Stackly</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Career Resources -->
+        <div class="footer-links-col">
+          <h3 class="footer-col-title">Career Resources</h3>
+          <ul class="footer-links-list">
+            <li><a href="404.html?action=System+Design+Interview+Prep">System Design Interview Prep</a></li>
+            <li><a href="404.html?action=ATS+Resume+Guide">ATS Resume &amp; Portfolio Guide</a></li>
+            <li><a href="404.html?action=2026+Tech+Salary+Benchmarks">2026 Tech Salary Benchmarks</a></li>
+            <li><a href="404.html?action=Role+Progression+Maps">Role Progression Maps</a></li>
+            <li><a href="404.html?action=Remote-First+Employers">Remote-First Employers</a></li>
+            <li><a href="404.html?action=AI+Skill+Match+Assessment">AI Skill Match Assessment</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Newsletter Subscription with Validation -->
+        <div class="footer-newsletter-col">
+          <h3 class="footer-col-title">Weekly Career Intelligence</h3>
+          <p class="newsletter-desc">
+            Receive curated $150k+ job drops, salary negotiation benchmarks, and hiring market reports every Tuesday.
+          </p>
+          <form class="newsletter-form" id="newsletterForm" novalidate>
+            <label for="newsletterEmail" class="sr-only">Work or personal email address</label>
+            <div class="newsletter-input-group" id="newsletterInputGroup">
+              <input
+                type="email"
+                id="newsletterEmail"
+                name="email"
+                placeholder="Enter your email address..."
+                autocomplete="email"
+                required
+                aria-describedby="newsletterFeedback"
+              />
+              <button type="submit" class="btn btn-primary newsletter-btn">Subscribe</button>
+            </div>
+            <p class="newsletter-feedback" id="newsletterFeedback" role="status" aria-live="polite"></p>
+          </form>
+          <div class="footer-trust-note">
+            <span>&#128274; Zero spam. SOC2 Type II &amp; GDPR compliant privacy.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 Stackly. All rights reserved. Built with precision for global professionals.</p>
+        <div class="footer-legal-links">
+          <a href="404.html?action=Privacy+Policy">Privacy Policy</a>
+          <a href="404.html?action=Terms+of+Service">Terms of Service</a>
+          <a href="404.html?action=Security+and+Trust">Security &amp; Trust</a>
+          <a href="404.html?action=Accessibility">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       INTERACTIVE MODAL DIALOG (AUTH / APPLY / CAREER ROADMAP / ARTICLE)
+       ===================================================================== -->
+  <div class="modal-backdrop hidden" id="interactiveModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close-btn" id="modalCloseBtn" aria-label="Close modal">&times;</button>
+      <div id="modalDynamicContent"></div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toastContainer" aria-live="polite"></div>
+
+  <!-- External Animation Scripts: GSAP, ScrollTrigger & AOS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+  <!-- Main Application JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
